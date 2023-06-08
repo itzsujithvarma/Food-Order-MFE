@@ -5,9 +5,9 @@ import Meals from "./components/Meals/Meals";
 const mount = el => {
     const root = createRoot(el);
     root.render(
-        <React.StrictMode>
+        <React.Fragment>
             <Meals />
-        </React.StrictMode>
+        </React.Fragment>
     );
 }
 

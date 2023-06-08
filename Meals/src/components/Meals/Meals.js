@@ -1,9 +1,12 @@
-import React  from "react";
-import AvailableMeals  from "./AvailableMeals";
+import React from "react";
+import MealsProvider from "../../store/MealsProvider";
+import AvailableMeals from "./AvailableMeals";
 
-const Meals =()=>{
-    return(
+const Meals = () => {
+    return (
+        <MealsProvider>
             <AvailableMeals></AvailableMeals>
+        </MealsProvider>
     );
 }
 export default Meals;
