@@ -1,6 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import Meals from "./Meals";
+import Meals from "./components/Meals/Meals";
 
 const mount = el => {
     const root = createRoot(el);
