@@ -5,8 +5,7 @@ import classes from './HeaderCartButton.module.css';
 
 const HeaderCartButton = props => {
     const [bumpButton, setBumpButton] = useState(false);
-    // const ctxt = useContext(CartContext);
-    const items = [];
+    const items = props.items;
     useEffect(()=>{
         if(items.length >0){
             setBumpButton(true);
