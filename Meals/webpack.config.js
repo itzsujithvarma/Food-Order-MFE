@@ -36,7 +36,7 @@ module.exports = {
             name: 'meals',
             filename: 'remoteEntry.js',
             exposes: {
-                './MealsIndex': './src/bootstrap',
+                './MealsIndex': './src/Meals',
             },
         })
     ],
