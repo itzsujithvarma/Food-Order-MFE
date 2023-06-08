@@ -32,7 +32,8 @@ const MealsProvider = props => {
         totalPrice: mealsState.totalPrice,
         addItem: addItemToCartHandler,
     }
-
+    props.OnItemsUpdated({items: mealsState.items,
+        totalPrice: mealsState.totalPrice});
     return <MealsContext.Provider value={mealsContext}>
         {props.children}
     </MealsContext.Provider>

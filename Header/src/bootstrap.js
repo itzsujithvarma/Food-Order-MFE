@@ -1,12 +1,12 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import Meals from "./components/Meals/Meals";
+import Header from "./components/Header";
 
 const mount = el => {
     const root = createRoot(el);
     root.render(
         <React.Fragment>
-            <Meals ReceiveItems = {() => {}}/>
+            <Header/>
         </React.Fragment>
     );
 }

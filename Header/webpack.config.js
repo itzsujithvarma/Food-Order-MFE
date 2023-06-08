@@ -5,7 +5,7 @@ const deps = require('./package.json').dependencies;
 module.exports = {
     mode: "development",
     devServer: {
-        port: 8080
+        port: 8082
     },
     entry: "/src/index.js", // main js
     module: {
@@ -34,22 +34,22 @@ module.exports = {
             template: "./src/index.html", // base html
         }),
         new ModuleFederationPlugin({
-            name: 'shell',
-            remotes: {
-                meals: 'meals@http://localhost:8081/remoteEntry.js',
-                header: 'header@http://localhost:8082/remoteEntry.js',
+            name: 'header',
+            filename: 'remoteEntry.js',
+            exposes: {
+                './HeaderIndex': './src/components/Header',
             },
             shared: {
                 ...deps,
                 react: {
-                    singleton: true,
-                    requiredVersion: deps.react,
+                  singleton: true,
+                  requiredVersion: deps.react,
                 },
                 'react-dom': {
-                    singleton: true,
-                    requiredVersion: deps['react-dom'],
+                  singleton: true,
+                  requiredVersion: deps['react-dom'],
                 },
-            }
+              },
         })
     ],
 };
