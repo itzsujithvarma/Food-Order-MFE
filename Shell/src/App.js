@@ -1,8 +1,22 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import Shell from "./Shell";
+import {BrowserRouter, Route, Routes, useNavigate} from "react-router-dom";
+import Order from 'order/OrderIndex';
 
+
+const App = () => {
+    const navigate = useNavigate();
+    return (
+        <Routes>
+            <Route path="/" element={<Shell />} />
+            <Route path="/order" element={<Order onHideCart={() => {
+                navigate('/');
+            }}/>} />
+        </Routes>
+    )
+}
 const root = createRoot(document.getElementById('root'));
     root.render(
-        <Shell/>
+        <BrowserRouter> <App/></BrowserRouter>
     );

@@ -2,10 +2,12 @@
 import React, { useEffect, useState } from "react";
 import Meals from 'meals/MealsIndex';
 import Header from 'header/HeaderIndex';
+import {useNavigate} from "react-router-dom";
 
 const Cart = React.lazy(() => import('cart/CartIndex'));
 const Order = React.lazy(() => import('order/OrderIndex'));
 const Shell = () => {
+    const navigate = useNavigate();
     const [totalPrice, setTotalPrice] = useState(0);
     const [items, setItems] = useState([]);
     useEffect(() => {
@@ -43,18 +45,13 @@ const Shell = () => {
         let newItems = [...items];
         newItems.forEach(x => x.count = 0);
         setItems(newItems);
-        setOrderCompleted(true);
+        navigate('/order');
     }
 
     const [showCart, setShowCart] = useState(false);
-    const [orderCompleted, setOrderCompleted] = useState(false);
     return (
         <React.Fragment>
             <React.Suspense fallback={<span>loading...</span>}>
-                {orderCompleted && <Order onHideCart={() => {
-                    setOrderCompleted(false);
-                }} />}
-
                 {showCart && <Cart orderItems={orderItems} addItem={addItem} removeItem={removeItem} items={items} totalPrice={totalPrice} onHideCart={() => {
                     setShowCart(false);
                 }} />}
