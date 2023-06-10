@@ -37,10 +37,17 @@ const removeItem = (id)=>{
     setItems(newItems);
   }
 
+  const orderItems = ()=>{
+    setShowCart(false);
+    let newItems = [...items];
+    newItems.forEach(x => x.count = 0);
+    setItems(newItems);
+  }
+
 const [showCart, setShowCart] = useState(false);
 return(
         <React.Fragment>
-          { showCart && <Cart addItem = {addItem} removeItem = {removeItem} items ={items} totalPrice = {totalPrice} onHideCart ={()=>{
+          { showCart && <Cart orderItems ={orderItems} addItem = {addItem} removeItem = {removeItem} items ={items} totalPrice = {totalPrice} onHideCart ={()=>{
                 setShowCart(false);
             }}/>}  
             <Header items = {items} showCart = {()=>{

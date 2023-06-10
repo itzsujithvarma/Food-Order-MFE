@@ -7,7 +7,10 @@ const HeaderCartButton = props => {
     const [bumpButton, setBumpButton] = useState(false);
     const items = props.items;
     useEffect(()=>{
-        if(items.length >0){
+        const length = items.reduce((current, item)=>{
+            return current + item.count;
+        },0)
+        if(length >0){
             setBumpButton(true);
         }
         const timer = setTimeout(()=>{
