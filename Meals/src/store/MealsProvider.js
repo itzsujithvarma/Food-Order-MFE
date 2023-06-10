@@ -1,4 +1,4 @@
-import  React, { useReducer } from "react";
+import  React, { useReducer, useEffect } from "react";
 import MealsContext from "./meals-context";
 
 const defaultState = {
@@ -32,8 +32,10 @@ const MealsProvider = props => {
         totalPrice: mealsState.totalPrice,
         addItem: addItemToCartHandler,
     }
-    props.OnItemsUpdated({items: mealsState.items,
-        totalPrice: mealsState.totalPrice});
+    useEffect(()=>{
+        props.OnItemsUpdated({items: mealsState.items,
+            totalPrice: mealsState.totalPrice});
+    },[mealsState]);
     return <MealsContext.Provider value={mealsContext}>
         {props.children}
     </MealsContext.Provider>
