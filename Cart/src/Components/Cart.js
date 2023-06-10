@@ -6,8 +6,8 @@ import Modal from './UI/Modal';
 const Cart = (props) => {
 
 // const ctxt = useContext(CartContext);
-const hasItems = true;
-const items = [];
+const items = props.items;
+const hasItems = items && items.length > 0;
 const totalPrice = `Rs 30.00`;
 
 const cartItemRemoveHandler = (id) => {

@@ -6,7 +6,7 @@ const mount = el => {
     const root = createRoot(el);
     root.render(
         <React.Fragment>
-            <Header items={[]}/>
+            <Header items={[]} showCart = {()=>{}}/>
         </React.Fragment>
     );
 }

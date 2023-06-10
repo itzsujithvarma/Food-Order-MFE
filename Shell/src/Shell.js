@@ -2,17 +2,22 @@
 import React, { useState } from "react";
 import Meals from 'meals/MealsIndex';
 import Header from 'header/HeaderIndex';
+import Cart from 'cart/CartIndex';
 
 const Shell = () => {
-const [totalPrice, setTotalPrice] = useState(0);
 const [items, setItems] = useState([]);
 const updateStates = (det)=>{
     setItems(det.items);
-    setTotalPrice(det.totalPrice);
 }
+const [showCart, setShowCart] = useState(false);
 return(
         <React.Fragment>
-            <Header items = {items}/>
+          { showCart && <Cart items ={items} onHideCart ={()=>{
+                setShowCart(false);
+            }}/>}  
+            <Header items = {items} showCart = {()=>{
+                setShowCart(true);
+            }}/>
             <Meals ReceiveItems = {updateStates}/>
         </React.Fragment>
     );
