@@ -10,7 +10,7 @@ const hasItems = items && items.length > 0;
 const totalPrice = `Rs ${props.totalPrice.toFixed(2)}`;
 
 const cartItemRemoveHandler = (id) => {
-    //props.removeItem(id);
+    props.removeItem(id);
 }
 const addCartItemHandler = (item) => {
    props.addItem(item);

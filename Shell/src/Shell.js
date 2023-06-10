@@ -17,10 +17,23 @@ const addItem = (item)=>{
   newItems[ind].count = newItems[ind].count + 1;
   setItems(newItems);
 }
+
+const removeItem = (id)=>{
+    let newItems = [...items];
+    const ind = newItems.findIndex((x) => x.id === id);
+    if(newItems[ind].count > 1){
+        newItems[ind].count = newItems[ind].count - 1;
+    }
+    else{
+        newItems = newItems.filter((x) => x.id != id);
+    }
+    setItems(newItems);
+  }
+
 const [showCart, setShowCart] = useState(false);
 return(
         <React.Fragment>
-          { showCart && <Cart addItem = {addItem} items ={items} totalPrice = {totalPrice} onHideCart ={()=>{
+          { showCart && <Cart addItem = {addItem} removeItem = {removeItem} items ={items} totalPrice = {totalPrice} onHideCart ={()=>{
                 setShowCart(false);
             }}/>}  
             <Header items = {items} showCart = {()=>{
