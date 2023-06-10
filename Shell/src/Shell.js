@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from "react";
 import Meals from 'meals/MealsIndex';
 import Header from 'header/HeaderIndex';
-import Cart from 'cart/CartIndex';
 
+const Cart = React.lazy(() => import('cart/CartIndex'));
 const Order = React.lazy(() => import('order/OrderIndex'));
 const Shell = () => {
     const [totalPrice, setTotalPrice] = useState(0);
@@ -50,15 +50,15 @@ const Shell = () => {
     const [orderCompleted, setOrderCompleted] = useState(false);
     return (
         <React.Fragment>
-            <React.Suspense fallback={ <span>loading...</span>}>
+            <React.Suspense fallback={<span>loading...</span>}>
                 {orderCompleted && <Order onHideCart={() => {
                     setOrderCompleted(false);
                 }} />}
-            </React.Suspense>
 
-            {showCart && <Cart orderItems={orderItems} addItem={addItem} removeItem={removeItem} items={items} totalPrice={totalPrice} onHideCart={() => {
-                setShowCart(false);
-            }} />}
+                {showCart && <Cart orderItems={orderItems} addItem={addItem} removeItem={removeItem} items={items} totalPrice={totalPrice} onHideCart={() => {
+                    setShowCart(false);
+                }} />}
+            </React.Suspense>
             <Header items={items} showCart={() => {
                 setShowCart(true);
             }} />
