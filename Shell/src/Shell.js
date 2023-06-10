@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Meals from 'meals/MealsIndex';
 import Header from 'header/HeaderIndex';
 import Cart from 'cart/CartIndex';
@@ -7,15 +7,25 @@ import Cart from 'cart/CartIndex';
 const Shell = () => {
 const [totalPrice, setTotalPrice] = useState(0);
 const [items, setItems] = useState([]);
+useEffect(()=>{
+    setTotalPrice(calculateTotalPrice(items));
+},[items])
 const updateStates = (det)=>{
     setItems(det.items);
-    setTotalPrice(det.totalPrice);
 }
 const addItem = (item)=>{
   const newItems = [...items];
   const ind = newItems.findIndex((x) => x.id === item.id);
   newItems[ind].count = newItems[ind].count + 1;
   setItems(newItems);
+}
+
+const calculateTotalPrice = (items) =>{
+    let price = 0;
+    items.map(x => {
+        price = price+ (x.price * x.count);
+    });
+    return price;
 }
 
 const removeItem = (id)=>{
@@ -25,6 +35,10 @@ const removeItem = (id)=>{
         newItems[ind].count = newItems[ind].count - 1;
     }
     else{
+        // setTotalPrice((prevstate) =>
+        // {
+        //     prevstate -  newItems[ind].price;
+        // });
         newItems = newItems.filter((x) => x.id != id);
     }
     setItems(newItems);
