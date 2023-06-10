@@ -2,9 +2,8 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import Shell from "./Shell";
 import {BrowserRouter, Route, Routes, useNavigate} from "react-router-dom";
-import Order from 'order/OrderIndex';
 
-
+const Order = React.lazy(() => import('order/OrderIndex'));
 const App = () => {
     const navigate = useNavigate();
     return (

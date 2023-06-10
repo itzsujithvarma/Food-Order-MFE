@@ -5,7 +5,6 @@ import Header from 'header/HeaderIndex';
 import {useNavigate} from "react-router-dom";
 
 const Cart = React.lazy(() => import('cart/CartIndex'));
-const Order = React.lazy(() => import('order/OrderIndex'));
 const Shell = () => {
     const navigate = useNavigate();
     const [totalPrice, setTotalPrice] = useState(0);
