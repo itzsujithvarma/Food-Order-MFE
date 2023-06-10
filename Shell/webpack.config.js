@@ -39,6 +39,7 @@ module.exports = {
                 meals: 'meals@http://localhost:8081/remoteEntry.js',
                 header: 'header@http://localhost:8082/remoteEntry.js',
                 cart: 'cart@http://localhost:8083/remoteEntry.js',
+                order: 'order@http://localhost:8084/remoteEntry.js',
             },
             shared: {
                 ...deps,
