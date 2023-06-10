@@ -31,15 +31,8 @@ const calculateTotalPrice = (items) =>{
 const removeItem = (id)=>{
     let newItems = [...items];
     const ind = newItems.findIndex((x) => x.id === id);
-    if(newItems[ind].count > 1){
+    if(newItems[ind].count > 0){
         newItems[ind].count = newItems[ind].count - 1;
-    }
-    else{
-        // setTotalPrice((prevstate) =>
-        // {
-        //     prevstate -  newItems[ind].price;
-        // });
-        newItems = newItems.filter((x) => x.id != id);
     }
     setItems(newItems);
   }

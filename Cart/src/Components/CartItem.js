@@ -1,10 +1,10 @@
-import React from "react";
+import React, { Fragment } from "react";
 import classes from './CartItem.module.css';
 
 const CartItem = (props) => {
   const price = `Rs ${props.price.toFixed(2)}`;
 
-  return (
+  const cartItem = props.count > 0? 
     <li className={classes['cart-item']}>
       <div>
         <h2>{props.name}</h2>
@@ -18,7 +18,8 @@ const CartItem = (props) => {
         <button onClick={props.onAdd}>+</button>
       </div>
     </li>
-  );
+  :<Fragment/>;
+  return cartItem;
 };
 
 export default CartItem;
