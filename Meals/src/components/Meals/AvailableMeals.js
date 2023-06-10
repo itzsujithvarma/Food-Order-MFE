@@ -6,14 +6,14 @@ import MealItem from './MealItem/MealItem';
 const DUMMY_MEALS = [
     {
       id: 'm1',
-      name: 'Sushi',
-      description: 'Finest fish and veggies',
+      name: 'Chicken Biryani',
+      description: 'Chicken in flavoured rice',
       price: 22.99,
     },
     {
       id: 'm2',
-      name: 'Schnitzel',
-      description: 'A german specialty!',
+      name: 'Idly',
+      description: 'South Indian Special',
       price: 16.5,
     },
     {
