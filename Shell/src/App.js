@@ -9,7 +9,7 @@ const App = () => {
     return (
         <Routes>
             <Route path="/" element={<Shell />} />
-            <Route path="/order" element={<Order onHideCart={() => {
+            <Route path="/Order" element={<Order onHideCart={() => {
                 navigate('/');
             }}/>} />
         </Routes>

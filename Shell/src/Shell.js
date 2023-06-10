@@ -44,7 +44,7 @@ const Shell = () => {
         let newItems = [...items];
         newItems.forEach(x => x.count = 0);
         setItems(newItems);
-        navigate('/order');
+        navigate('/Order');
     }
 
     const [showCart, setShowCart] = useState(false);
