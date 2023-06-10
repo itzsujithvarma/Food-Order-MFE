@@ -8,25 +8,25 @@ const DUMMY_MEALS = [
       id: 'm1',
       name: 'Chicken Biryani',
       description: 'Chicken in flavoured rice',
-      price: 22.99,
+      price: 150.00,
     },
     {
       id: 'm2',
       name: 'Idly',
       description: 'South Indian Special',
-      price: 16.5,
+      price: 30.00,
     },
     {
       id: 'm3',
       name: 'Barbecue Burger',
       description: 'American, raw, meaty',
-      price: 12.99,
+      price: 90.00,
     },
     {
       id: 'm4',
       name: 'Green Bowl',
       description: 'Healthy...and green...',
-      price: 18.99,
+      price: 60.00,
     },
   ];
 

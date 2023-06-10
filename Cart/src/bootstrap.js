@@ -6,7 +6,7 @@ const mount = el => {
     const root = createRoot(el);
     root.render(
         <React.Fragment>
-            <Cart onHideCart = {() => {}} items={[]}/>
+            <Cart onHideCart = {() => {}} items={[]} totalPrice = {0} addItem = {() => {}} />
         </React.Fragment>
     );
 }

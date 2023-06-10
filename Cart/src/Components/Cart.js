@@ -5,22 +5,21 @@ import Modal from './UI/Modal';
 
 const Cart = (props) => {
 
-// const ctxt = useContext(CartContext);
 const items = props.items;
 const hasItems = items && items.length > 0;
-const totalPrice = `Rs 30.00`;
+const totalPrice = `Rs ${props.totalPrice.toFixed(2)}`;
 
 const cartItemRemoveHandler = (id) => {
-   // ctxt.removeItem(id);
+    //props.removeItem(id);
 }
 const addCartItemHandler = (item) => {
-   // ctxt.addItem({...item, count: 1});
+   props.addItem(item);
 }
 const cartItems = ( <ul className={classes['cart-items']}> {items.map(item =>
-    <li><CartItem 
+    <CartItem 
     key ={item.id} name = {item.name} count = {item.count} price = {item.price} 
     onRemove = {cartItemRemoveHandler.bind(null, item.id)} onAdd = {addCartItemHandler.bind(null, item)}
-    /></li>)}
+    />)}
 </ul>)
 
 return (
