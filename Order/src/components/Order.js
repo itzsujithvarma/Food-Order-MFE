@@ -3,7 +3,9 @@ import classes from './Order.module.css';
 import Modal from './UI/Modal';
 
 const Order = (props) => {
-
+if(props.totalPrice <= 0){
+    throw new Error("No Products Selected");
+}
 return (
     <Modal onCloseCart = {props.onHideCart}>
         <div className={classes.total}>

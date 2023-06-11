@@ -4,7 +4,6 @@ import CartItem from './CartItem';
 import Modal from './UI/Modal';
 
 const Cart = (props) => {
-
 const items = props.items;
 const hasItems = items.reduce((current, item)=>{
     return current + item.count;
@@ -34,7 +33,7 @@ return (
         </div>
         <div className={classes.actions}>
             <button className={classes['button--alt']} onClick = {props.onHideCart}>Close</button>
-            { hasItems && <button className={classes.button} onClick={props.orderItems}>Order</button>}
+            <button className={classes.button} onClick={props.orderItems}>Order</button>
         </div>
     </Modal>
 );

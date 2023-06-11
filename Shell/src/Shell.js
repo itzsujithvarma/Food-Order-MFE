@@ -2,15 +2,16 @@
 import React, { useEffect, useState } from "react";
 import Meals from 'meals/MealsIndex';
 import Header from 'header/HeaderIndex';
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Cart = React.lazy(() => import('cart/CartIndex'));
-const Shell = () => {
+const Shell = (props) => {
     const navigate = useNavigate();
     const [totalPrice, setTotalPrice] = useState(0);
     const [items, setItems] = useState([]);
     useEffect(() => {
         setTotalPrice(calculateTotalPrice(items));
+        props.totalPriceChanged(totalPrice);
     }, [items])
     const updateStates = (det) => {
         setItems(det.items);
@@ -45,6 +46,7 @@ const Shell = () => {
         newItems.forEach(x => x.count = 0);
         setItems(newItems);
         navigate('/Order');
+
     }
 
     const [showCart, setShowCart] = useState(false);
