@@ -5,7 +5,7 @@ const deps = require('./package.json').dependencies;
 module.exports = {
     mode: "development",
     devServer: {
-        port: 8080
+        port: 8088
     },
     entry: "/src/index.js", // main js
     module: {
