@@ -1,18 +1,19 @@
-import React, { useContext } from "react";
-import MealsContext from "../../../store/meals-context";
+import React from "react";
+import { connect } from 'react-redux';
 import classes from './MealItem.module.css'
 import MealItemForm from './MealItemForm';
+import { addItem } from "../../../redux-store/actions";
 
-const MealItem = props =>{
-    const ctxt = useContext(MealsContext);
+const MealItem = (props) =>{
     const price = `Rs ${props.price.toFixed(2)}`
     const addToCart = (totalCount) => {
-        ctxt.addItem({
+        const newitem = {
             id: props.id,
             name: props.name,
             count: totalCount,
             price: props.price
-        })
+        }
+        props.addItem(newitem)
     }
     return (
         <li className={classes.meal}>
@@ -26,4 +27,12 @@ const MealItem = props =>{
     )
 }
 
-export default MealItem;
+const mapStateToProps = (state) => ({
+    items: state.items
+  });
+  
+  const mapDispatchToProps = {
+    addItem,
+  };
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(MealItem);

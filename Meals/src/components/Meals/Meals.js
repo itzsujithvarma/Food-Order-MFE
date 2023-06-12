@@ -1,15 +1,17 @@
 import React from "react";
-import MealsProvider from "../../store/MealsProvider";
+import { Provider } from "react-redux";
+import store from "../../redux-store/store";
 import AvailableMeals from "./AvailableMeals";
+
 
 const Meals = (props) => {
     const cartUpdated = (itemsDetails) =>{
         props.ReceiveItems(itemsDetails);
     }
     return (
-        <MealsProvider OnItemsUpdated = {cartUpdated}>
-            <AvailableMeals></AvailableMeals>
-        </MealsProvider>
+        <Provider store={store}>
+            <AvailableMeals OnItemsUpdated = {cartUpdated}></AvailableMeals>
+        </Provider>
     );
 }
 export default Meals;

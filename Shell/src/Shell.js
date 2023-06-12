@@ -13,8 +13,8 @@ const Shell = (props) => {
         setTotalPrice(calculateTotalPrice(items));
         props.totalPriceChanged(totalPrice);
     }, [items])
-    const updateStates = (det) => {
-        setItems(det.items);
+    const updateStates = (items) => {
+        setItems(items);
     }
     const addItem = (item) => {
         const newItems = [...items];
